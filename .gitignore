@@ -5,24 +5,19 @@ build/
 .env.local
 .env.*.local
 
-# Vite / TS build artifacts
 .vite/
 *.tsbuildinfo
 
-# Replit
 .replit
 .cache/
 .agents/
 .upm/
 
-# Temp / dev assets
 attached_assets/
 *.zip
 
-# OS
 .DS_Store
 Thumbs.db
 
-# Editor
 .vscode/
 .idea/
