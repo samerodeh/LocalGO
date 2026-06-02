@@ -1,0 +1,158 @@
+/* ── LocalGo Design Tokens ── */
+:root {
+  /* Brand palette — vibrant and modern */
+  --navy:        #0f172a;
+  --navy-deep:   #020617;
+  --navy-mid:    #1e293b;
+  --navy-light:  #334155;
+  --orange:      #f97316;
+  --orange-light:#fb923c;
+  --orange-dark: #ea580c;
+  --orange-dim:  rgba(249, 115, 22, 0.15);
+  --orange-glow: rgba(249, 115, 22, 0.4);
+
+  /* Neutrals */
+  --white:       #ffffff;
+  --off-white:   #f8fafc;
+  --smoke:       #e2e8f0;
+  --muted:       #94a3b8;
+  --text:        #0f172a;
+  --text-light:  #64748b;
+  --gray-100:    #f1f5f9;
+  --gray-200:    #e2e8f0;
+  --gray-300:    #cbd5e1;
+  --gray-400:    #94a3b8;
+
+  /* Type */
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --section-pad: clamp(80px, 12vw, 140px);
+  --container:   1280px;
+  --gap:         clamp(20px, 4vw, 40px);
+
+  /* Radius */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+
+  /* Shadows */
+  --shadow-xs:   0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm:   0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-md:   0 4px 16px rgba(15, 23, 42, 0.12);
+  --shadow-lg:   0 8px 32px rgba(15, 23, 42, 0.16);
+  --shadow-xl:   0 16px 48px rgba(15, 23, 42, 0.20);
+  --shadow-2xl:  0 24px 64px rgba(15, 23, 42, 0.25);
+  --shadow-glow: 0 0 40px rgba(249, 115, 22, 0.3);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ── Utility ── */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 6vw, 80px);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.anim-fade-up  { animation: fadeUp  0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-fade-in  { animation: fadeIn  0.6s ease both; }
+.anim-scale-in { animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-slide-left { animation: slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* delay helpers */
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.15s; }
+.d3 { animation-delay: 0.25s; }
+.d4 { animation-delay: 0.35s; }
+.d5 { animation-delay: 0.5s; }
+.d6 { animation-delay: 0.65s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
