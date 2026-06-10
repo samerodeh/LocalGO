@@ -27,6 +27,7 @@
 		C0267589404C991D27F23051 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFAA8A87FCF9EF6264F11C /* AppTheme.swift */; };
 		C426AA93466EE3467E48D41F /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3956F98AD9C29AFE1162645 /* CheckoutViewModel.swift */; };
 		D5884063F9CFF373361D7FB4 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B9BC8AC978EC488B962C7 /* Cart.swift */; };
+		DA5687D49A8C8FA77639A5E9 /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB43564B5EA74F5BB38891AF /* FullScreenImageView.swift */; };
 		DDA582B21E9B4012DA6031C0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34445A2EB9C46EB16144479 /* ImageCache.swift */; };
 		E7C4AD9B554A4E271CD44B61 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE48CA8D31CCA341AAAD8380 /* MenuItemRow.swift */; };
 		F271789BCFE20DC3274DB3A9 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76359317E596A68CC67A2494 /* CartView.swift */; };
@@ -53,6 +54,7 @@
 		C34445A2EB9C46EB16144479 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		C782BB9765486D7B907D9922 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		C7B4B34A9F48A71EB3B14D15 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		CB43564B5EA74F5BB38891AF /* FullScreenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageView.swift; sourceTree = "<group>"; };
 		D0CFAA8A87FCF9EF6264F11C /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		DE48CA8D31CCA341AAAD8380 /* MenuItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemRow.swift; sourceTree = "<group>"; };
 		DE8024A40AB160D31F28DB3E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				E8CD4491A06FF7CCB857F90C /* Cart */,
 				1DE77E8929D144AE36934D37 /* Checkout */,
+				DE1E4D4A64AE4431EA7621F3 /* Components */,
 				1F9CD46C6705640E22B36624 /* Home */,
 				C9C863C3AAD90AC724F86491 /* Profile */,
 				829A9E93AB0E702A30E619FF /* Restaurant */,
@@ -211,6 +214,14 @@
 				B0B0FFD7618015B367E7099C /* OrderTrackingView.swift */,
 			);
 			path = Tracking;
+			sourceTree = "<group>";
+		};
+		DE1E4D4A64AE4431EA7621F3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CB43564B5EA74F5BB38891AF /* FullScreenImageView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E8CD4491A06FF7CCB857F90C /* Cart */ = {
@@ -308,6 +319,7 @@
 				AE0112B9F5CFA5637DC53509 /* Config.swift in Sources */,
 				F681221FE6F14CB8E97760C7 /* ContentView.swift in Sources */,
 				03C31AC914D810D69379ADF5 /* FoodImages.swift in Sources */,
+				DA5687D49A8C8FA77639A5E9 /* FullScreenImageView.swift in Sources */,
 				2D9DE7C230A40D5C2C462F0C /* HomeView.swift in Sources */,
 				8AB06F68397F1D3D29D9079E /* HomeViewModel.swift in Sources */,
 				DDA582B21E9B4012DA6031C0 /* ImageCache.swift in Sources */,

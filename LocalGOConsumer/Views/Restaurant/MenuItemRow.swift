@@ -4,6 +4,7 @@ struct MenuItemRow: View {
     let item: MenuItem
     let restaurant: Restaurant
     @EnvironmentObject private var cartVM: CartViewModel
+    @State private var showFullImage = false
 
     private var qty: Int { cartVM.quantityOf(item) }
 
@@ -47,6 +48,16 @@ struct MenuItemRow: View {
             // Thumbnail + add/remove
             VStack(alignment: .center, spacing: 0) {
                 FoodThumbnail(url: item.imageURL, width: 88, height: 76)
+                    .overlay(alignment: .topLeading) {
+                        Image(systemName: "arrow.up.left.and.arrow.down.right")
+                            .font(.system(size: 9, weight: .bold))
+                            .foregroundColor(.white)
+                            .padding(5)
+                            .background(.black.opacity(0.45), in: Circle())
+                            .padding(5)
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture { showFullImage = true }
 
                 if qty == 0 {
                     Button {
@@ -86,5 +97,8 @@ struct MenuItemRow: View {
         .padding(.horizontal, 20).padding(.vertical, 16)
         .background(Color.white)
         .contentShape(Rectangle())
+        .fullScreenCover(isPresented: $showFullImage) {
+            FullScreenImageView(item: item, restaurant: restaurant)
+        }
     }
 }

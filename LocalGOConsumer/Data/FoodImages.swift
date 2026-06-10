@@ -60,12 +60,18 @@ enum FoodImages {
         "water":                         "water,bottle",
     ]
 
-    static func url(for name: String) -> URL? {
+    /// Thumbnail-sized photo for menu rows and cards.
+    static func url(for name: String) -> URL? { makeURL(name: name, size: 400) }
+
+    /// Larger photo (same image) for the full-screen viewer.
+    static func largeURL(for name: String) -> URL? { makeURL(name: name, size: 1000) }
+
+    private static func makeURL(name: String, size: Int) -> URL? {
         let key = name.lowercased()
         let tags = keywords[key] ?? "lebanese,food,plate"
         let lock = stableLock(key)
         let encoded = tags.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "food"
-        return URL(string: "https://loremflickr.com/400/400/\(encoded)?lock=\(lock)")
+        return URL(string: "https://loremflickr.com/\(size)/\(size)/\(encoded)?lock=\(lock)")
     }
 
     /// Deterministic per-name value so each item keeps the same photo between launches.

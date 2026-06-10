@@ -174,6 +174,7 @@ struct PopularItemCard: View {
     let item: MenuItem
     let restaurant: Restaurant
     @EnvironmentObject private var cartVM: CartViewModel
+    @State private var showFullImage = false
 
     var qty: Int { cartVM.quantityOf(item) }
 
@@ -181,6 +182,16 @@ struct PopularItemCard: View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .bottomTrailing) {
                 FoodThumbnail(url: item.imageURL, width: 148, height: 108, corner: 14)
+                    .overlay(alignment: .topLeading) {
+                        Image(systemName: "arrow.up.left.and.arrow.down.right")
+                            .font(.system(size: 10, weight: .bold))
+                            .foregroundColor(.white)
+                            .padding(6)
+                            .background(.black.opacity(0.45), in: Circle())
+                            .padding(6)
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture { showFullImage = true }
                 Button {
                     cartVM.addItem(item, restaurant: restaurant)
                 } label: {
@@ -197,5 +208,8 @@ struct PopularItemCard: View {
                 .font(.system(size: 14, weight: .bold)).foregroundColor(AppTheme.primary)
         }
         .frame(width: 148)
+        .fullScreenCover(isPresented: $showFullImage) {
+            FullScreenImageView(item: item, restaurant: restaurant)
+        }
     }
 }

@@ -18,6 +18,9 @@ struct MenuItem: Identifiable, Hashable {
     /// Dish-matched food photo. Swap in Al Taib's own image URLs here later.
     var imageURL: URL? { FoodImages.url(for: name) }
 
+    /// Higher-resolution version of the same photo, for the full-screen viewer.
+    var largeImageURL: URL? { FoodImages.largeURL(for: name) }
+
     static func == (lhs: MenuItem, rhs: MenuItem) -> Bool { lhs.id == rhs.id }
     func hash(into hasher: inout Hasher) { hasher.combine(id) }
 }

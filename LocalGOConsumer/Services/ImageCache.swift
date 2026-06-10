@@ -138,6 +138,7 @@ final class ImageCache {
 /// shows `placeholder` while loading and fades the photo in.
 struct CachedAsyncImage<Content: View, Placeholder: View>: View {
     private let url: URL?
+    private let maxPixel: CGFloat
     private let content: (Image) -> Content
     private let placeholder: () -> Placeholder
 
@@ -145,10 +146,12 @@ struct CachedAsyncImage<Content: View, Placeholder: View>: View {
 
     init(
         url: URL?,
+        maxPixel: CGFloat = 600,
         @ViewBuilder content: @escaping (Image) -> Content,
         @ViewBuilder placeholder: @escaping () -> Placeholder
     ) {
         self.url = url
+        self.maxPixel = maxPixel
         self.content = content
         self.placeholder = placeholder
         // Instant first-frame render if the photo is already decoded in memory.
@@ -167,7 +170,7 @@ struct CachedAsyncImage<Content: View, Placeholder: View>: View {
         }
         .task(id: url) {
             guard uiImage == nil, let url else { return }
-            if let loaded = await ImageCache.shared.image(for: url) {
+            if let loaded = await ImageCache.shared.image(for: url, maxPixel: maxPixel) {
                 withAnimation(.easeInOut(duration: 0.2)) { uiImage = loaded }
             }
         }
