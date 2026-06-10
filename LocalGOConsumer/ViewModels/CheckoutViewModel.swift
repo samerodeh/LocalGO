@@ -21,7 +21,7 @@ class CheckoutViewModel: ObservableObject {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONEncoder().encode(["amount": amountCents, "currency": "cad"])
+        request.httpBody = try? JSONSerialization.data(withJSONObject: ["amount": amountCents, "currency": "cad"])
 
         do {
             let (data, _) = try await URLSession.shared.data(for: request)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03C31AC914D810D69379ADF5 /* FoodImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E45FD329F884D50E85B46 /* FoodImages.swift */; };
 		0A668994A1CEAFEDC576E434 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C140E7AC49429BECA437576 /* OrderService.swift */; };
 		1E628605B8879386EE586D4F /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8024A40AB160D31F28DB3E /* Restaurant.swift */; };
 		2D9DE7C230A40D5C2C462F0C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBA743819EB611D2C06DC5 /* HomeView.swift */; };
@@ -40,6 +41,7 @@
 		3C140E7AC49429BECA437576 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
 		5CD1ED5B486250EE875B085C /* RestaurantCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCardView.swift; sourceTree = "<group>"; };
 		76359317E596A68CC67A2494 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		985E45FD329F884D50E85B46 /* FoodImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImages.swift; sourceTree = "<group>"; };
 		A578105152A39E3677DB9506 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 		B0B0FFD7618015B367E7099C /* OrderTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingView.swift; sourceTree = "<group>"; };
 		B10031E18B38D3565F81CF49 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		48E25C10533DBE786A8C18D8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				985E45FD329F884D50E85B46 /* FoodImages.swift */,
 				F28B7B8DAD92C3C486A44143 /* RestaurantData.swift */,
 			);
 			path = Data;
@@ -301,6 +304,7 @@
 				C426AA93466EE3467E48D41F /* CheckoutViewModel.swift in Sources */,
 				AE0112B9F5CFA5637DC53509 /* Config.swift in Sources */,
 				F681221FE6F14CB8E97760C7 /* ContentView.swift in Sources */,
+				03C31AC914D810D69379ADF5 /* FoodImages.swift in Sources */,
 				2D9DE7C230A40D5C2C462F0C /* HomeView.swift in Sources */,
 				8AB06F68397F1D3D29D9079E /* HomeViewModel.swift in Sources */,
 				FB681A4850A601A41FA06994 /* LocalGOConsumerApp.swift in Sources */,

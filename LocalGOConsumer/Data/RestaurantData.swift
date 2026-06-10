@@ -3,7 +3,7 @@ import Foundation
 // MARK: - Al Taib Restaurant — sourced from altaib.ca & Uber Eats
 enum RestaurantData {
 
-    static let altaibID = UUID(uuidString: "A1TAIB00-0000-0000-0000-000000000001")!
+    static let altaibID = UUID(uuidString: "A17A1B00-0000-0000-0000-000000000001")!
 
     static let altaib: Restaurant = Restaurant(
         id: altaibID,
@@ -33,7 +33,7 @@ enum RestaurantData {
     // MARK: - Categories
 
     private static let featured = MenuCategory(
-        id: UUID(uuidString: "CAT00001-0000-0000-0000-000000000001")!,
+        id: UUID(uuidString: "CA700001-0000-0000-0000-000000000001")!,
         name: "Featured",
         items: [
             item("Cheese Manakish",          "Kashkaval, akawi cheese, and halloumi baked on granite",        7.50, popular: true,  veg: true),
@@ -46,7 +46,7 @@ enum RestaurantData {
     )
 
     private static let manakishAndPies = MenuCategory(
-        id: UUID(uuidString: "CAT00002-0000-0000-0000-000000000002")!,
+        id: UUID(uuidString: "CA700002-0000-0000-0000-000000000002")!,
         name: "Manakish & Pies",
         items: [
             item("Zaatar Manakish",              "Classic Lebanese thyme blend on freshly baked flatbread",           4.75, popular: true,  veg: true),
@@ -63,7 +63,7 @@ enum RestaurantData {
     )
 
     private static let pizza = MenuCategory(
-        id: UUID(uuidString: "CAT00003-0000-0000-0000-000000000003")!,
+        id: UUID(uuidString: "CA700003-0000-0000-0000-000000000003")!,
         name: "Pizza",
         items: [
             item("All Dressed Pizza",              "Sauce, mozzarella, pepperoni, mushrooms, and green pepper",       16.00, popular: true,  veg: false),
@@ -80,7 +80,7 @@ enum RestaurantData {
     )
 
     private static let grill = MenuCategory(
-        id: UUID(uuidString: "CAT00004-0000-0000-0000-000000000004")!,
+        id: UUID(uuidString: "CA700004-0000-0000-0000-000000000004")!,
         name: "Grill",
         items: [
             item("Shish Taouk Sandwich",   "Marinated chicken grilled and served in fresh pita with garlic sauce",   11.00, popular: true,  veg: false),
@@ -90,7 +90,7 @@ enum RestaurantData {
     )
 
     private static let sides = MenuCategory(
-        id: UUID(uuidString: "CAT00005-0000-0000-0000-000000000005")!,
+        id: UUID(uuidString: "CA700005-0000-0000-0000-000000000005")!,
         name: "Sides & Salads",
         items: [
             item("Hummus",           "Classic smooth hummus with olive oil and paprika, served with pita",  6.50, popular: true,  veg: true),
@@ -106,7 +106,7 @@ enum RestaurantData {
     )
 
     private static let drinks = MenuCategory(
-        id: UUID(uuidString: "CAT00006-0000-0000-0000-000000000006")!,
+        id: UUID(uuidString: "CA700006-0000-0000-0000-000000000006")!,
         name: "Drinks",
         items: [
             item("Ayran Yoghurt",      "Refreshing cold salted yoghurt drink",  5.50, popular: true,  veg: true),

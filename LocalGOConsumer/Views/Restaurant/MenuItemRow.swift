@@ -46,13 +46,7 @@ struct MenuItemRow: View {
 
             // Thumbnail + add/remove
             VStack(alignment: .center, spacing: 0) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(AppTheme.primary.opacity(0.09))
-                        .frame(width: 88, height: 76)
-                    Image(systemName: "fork.knife")
-                        .font(.system(size: 26)).foregroundColor(AppTheme.primary.opacity(0.35))
-                }
+                FoodThumbnail(url: item.imageURL, width: 88, height: 76)
 
                 if qty == 0 {
                     Button {

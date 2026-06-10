@@ -175,12 +175,7 @@ struct PopularItemCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .bottomTrailing) {
-                RoundedRectangle(cornerRadius: 14, style: .continuous)
-                    .fill(AppTheme.primary.opacity(0.10))
-                    .frame(width: 148, height: 108)
-                Image(systemName: "fork.knife.circle.fill")
-                    .font(.system(size: 52)).foregroundColor(AppTheme.primary.opacity(0.25))
-                    .frame(width: 148, height: 108)
+                FoodThumbnail(url: item.imageURL, width: 148, height: 108, corner: 14)
                 Button {
                     cartVM.addItem(item, restaurant: restaurant)
                 } label: {
