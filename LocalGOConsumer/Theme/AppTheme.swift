@@ -15,6 +15,7 @@ enum AppTheme {
     static let textPrimary   = Color(red: 15/255,  green: 23/255,  blue: 42/255)
     static let textSecondary = Color(red: 100/255, green: 116/255, blue: 139/255)  // #64748b
     static let divider       = Color(red: 226/255, green: 232/255, blue: 240/255)  // #e2e8f0
+    static let green         = Color(red: 34/255,  green: 197/255, blue: 94/255)   // #22c55e
 
     // MARK: - Shape
     static let cardRadius: CGFloat    = 18

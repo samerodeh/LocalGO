@@ -14,6 +14,7 @@
 		30174D2543F1A478DBB909BC /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C782BB9765486D7B907D9922 /* CartViewModel.swift */; };
 		367564975964975A10281638 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AC00D612CC0B1263B77BA8FB /* StripePaymentSheet */; };
 		41535726E2915F0040AEADEA /* OrderTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FFD7618015B367E7099C /* OrderTrackingView.swift */; };
+		4FF961C1509A88709CDDA9B1 /* SalesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACEE50AF13E6EEED188836 /* SalesData.swift */; };
 		55CB0D585E028CFAA74B9D61 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE08AE98E58CC843353C2 /* Order.swift */; };
 		5DBC5E5A613796612D9F4424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB24CB72291B34F64B3BFB9 /* Assets.xcassets */; };
 		62EAAC1A1DFF27E504DFBC2F /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A578105152A39E3677DB9506 /* RestaurantView.swift */; };
@@ -21,6 +22,7 @@
 		8985EDB242E6B855E07A074A /* RestaurantCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1ED5B486250EE875B085C /* RestaurantCardView.swift */; };
 		8A0F362B9EE1B7C599F7CE99 /* RestaurantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28B7B8DAD92C3C486A44143 /* RestaurantData.swift */; };
 		8AB06F68397F1D3D29D9079E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C03F7375480F9EBDC07E3C /* HomeViewModel.swift */; };
+		8F06D44AAFD9134A80CCD864 /* RecommendationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC9991217E576555604EBA /* RecommendationEngine.swift */; };
 		960D1DF879A4CE3A75D8A128 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC34CDBE5C34BE4CC203D1 /* MenuItem.swift */; };
 		A43D838D4244A0A8590DA244 /* CartItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F47ECF79241567D50586D /* CartItemRow.swift */; };
 		AE0112B9F5CFA5637DC53509 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1DAE8F20C373A89A44817 /* Config.swift */; };
@@ -41,6 +43,7 @@
 		21DC89460C8F3429C2C2CB44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2EB24CB72291B34F64B3BFB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C140E7AC49429BECA437576 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
+		43CC9991217E576555604EBA /* RecommendationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationEngine.swift; sourceTree = "<group>"; };
 		5CD1ED5B486250EE875B085C /* RestaurantCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCardView.swift; sourceTree = "<group>"; };
 		76359317E596A68CC67A2494 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		985E45FD329F884D50E85B46 /* FoodImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImages.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		B4C03F7375480F9EBDC07E3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C03CDB1EE66FEDECE6D623E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C0AD91B35930626ED6BF7EAE /* LocalGOConsumer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocalGOConsumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1ACEE50AF13E6EEED188836 /* SalesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesData.swift; sourceTree = "<group>"; };
 		C34445A2EB9C46EB16144479 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		C782BB9765486D7B907D9922 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		C7B4B34A9F48A71EB3B14D15 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 			children = (
 				985E45FD329F884D50E85B46 /* FoodImages.swift */,
 				F28B7B8DAD92C3C486A44143 /* RestaurantData.swift */,
+				C1ACEE50AF13E6EEED188836 /* SalesData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				F5B1DAE8F20C373A89A44817 /* Config.swift */,
 				C34445A2EB9C46EB16144479 /* ImageCache.swift */,
 				3C140E7AC49429BECA437576 /* OrderService.swift */,
+				43CC9991217E576555604EBA /* RecommendationEngine.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -330,10 +336,12 @@
 				0A668994A1CEAFEDC576E434 /* OrderService.swift in Sources */,
 				41535726E2915F0040AEADEA /* OrderTrackingView.swift in Sources */,
 				F9CB022BEBE2BB8DE95C6002 /* ProfileView.swift in Sources */,
+				8F06D44AAFD9134A80CCD864 /* RecommendationEngine.swift in Sources */,
 				1E628605B8879386EE586D4F /* Restaurant.swift in Sources */,
 				8985EDB242E6B855E07A074A /* RestaurantCardView.swift in Sources */,
 				8A0F362B9EE1B7C599F7CE99 /* RestaurantData.swift in Sources */,
 				62EAAC1A1DFF27E504DFBC2F /* RestaurantView.swift in Sources */,
+				4FF961C1509A88709CDDA9B1 /* SalesData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

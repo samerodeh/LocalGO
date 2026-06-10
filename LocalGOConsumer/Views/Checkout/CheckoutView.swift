@@ -3,6 +3,7 @@ import StripePaymentSheet
 
 struct CheckoutView: View {
     @EnvironmentObject private var cartVM: CartViewModel
+    @EnvironmentObject private var recEngine: RecommendationEngine
     @StateObject private var vm = CheckoutViewModel()
     @StateObject private var orderSvc = OrderService()
     @State private var placedOrder: Order? = nil
@@ -187,6 +188,7 @@ struct CheckoutView: View {
                             total: cartVM.total
                         )
                         placedOrder = order
+                        recEngine.recordOrder(cartVM.items)   // feed the order back into rankings
                         cartVM.clearCart()
                         showTracking = true
                     case .failed(let err):

@@ -4,6 +4,7 @@ import StripePaymentSheet
 @main
 struct LocalGOConsumerApp: App {
     @StateObject private var cartVM = CartViewModel()
+    @StateObject private var recEngine = RecommendationEngine()
 
     init() {
         // Set your Stripe publishable key — get it from dashboard.stripe.com
@@ -14,6 +15,7 @@ struct LocalGOConsumerApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(cartVM)
+                .environmentObject(recEngine)
         }
     }
 }
