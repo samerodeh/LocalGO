@@ -76,7 +76,9 @@ enum FoodImages {
     }
 }
 
-/// Reusable thumbnail that loads a remote food photo with a branded fallback.
+/// Reusable thumbnail backed by the cached image pipeline (memory + disk +
+/// downsampling). Renders instantly when warm; shows a branded fallback while
+/// loading or when offline.
 struct FoodThumbnail: View {
     let url: URL?
     let width: CGFloat
@@ -84,26 +86,27 @@ struct FoodThumbnail: View {
     var corner: CGFloat = 12
 
     var body: some View {
-        AsyncImage(url: url, transaction: Transaction(animation: .easeInOut(duration: 0.25))) { phase in
-            switch phase {
-            case .success(let image):
-                image.resizable().aspectRatio(contentMode: .fill)
-            case .empty:
-                ZStack {
-                    AppTheme.primary.opacity(0.09)
-                    ProgressView().tint(AppTheme.primary.opacity(0.5))
-                }
-            default: // .failure
-                ZStack {
-                    AppTheme.primary.opacity(0.09)
-                    Image(systemName: "fork.knife")
-                        .font(.system(size: min(width, height) * 0.32))
-                        .foregroundColor(AppTheme.primary.opacity(0.35))
-                }
+        CachedAsyncImage(url: url) { image in
+            image.resizable().aspectRatio(contentMode: .fill)
+        } placeholder: {
+            ZStack {
+                AppTheme.primary.opacity(0.09)
+                Image(systemName: "fork.knife")
+                    .font(.system(size: min(width, height) * 0.32))
+                    .foregroundColor(AppTheme.primary.opacity(0.35))
             }
         }
         .frame(width: width, height: height)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: corner, style: .continuous))
+    }
+
+    /// Every menu photo URL across all restaurants — used to warm the cache on launch.
+    static var allMenuImageURLs: [URL] {
+        let urls = RestaurantData.all
+            .flatMap { $0.categories }
+            .flatMap { $0.items }
+            .compactMap { $0.imageURL }
+        return Array(Set(urls))
     }
 }

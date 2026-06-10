@@ -27,6 +27,7 @@
 		C0267589404C991D27F23051 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFAA8A87FCF9EF6264F11C /* AppTheme.swift */; };
 		C426AA93466EE3467E48D41F /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3956F98AD9C29AFE1162645 /* CheckoutViewModel.swift */; };
 		D5884063F9CFF373361D7FB4 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B9BC8AC978EC488B962C7 /* Cart.swift */; };
+		DDA582B21E9B4012DA6031C0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34445A2EB9C46EB16144479 /* ImageCache.swift */; };
 		E7C4AD9B554A4E271CD44B61 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE48CA8D31CCA341AAAD8380 /* MenuItemRow.swift */; };
 		F271789BCFE20DC3274DB3A9 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76359317E596A68CC67A2494 /* CartView.swift */; };
 		F681221FE6F14CB8E97760C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC89460C8F3429C2C2CB44 /* ContentView.swift */; };
@@ -49,6 +50,7 @@
 		B4C03F7375480F9EBDC07E3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C03CDB1EE66FEDECE6D623E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C0AD91B35930626ED6BF7EAE /* LocalGOConsumer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocalGOConsumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C34445A2EB9C46EB16144479 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		C782BB9765486D7B907D9922 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		C7B4B34A9F48A71EB3B14D15 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		D0CFAA8A87FCF9EF6264F11C /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				F5B1DAE8F20C373A89A44817 /* Config.swift */,
+				C34445A2EB9C46EB16144479 /* ImageCache.swift */,
 				3C140E7AC49429BECA437576 /* OrderService.swift */,
 			);
 			path = Services;
@@ -307,6 +310,7 @@
 				03C31AC914D810D69379ADF5 /* FoodImages.swift in Sources */,
 				2D9DE7C230A40D5C2C462F0C /* HomeView.swift in Sources */,
 				8AB06F68397F1D3D29D9079E /* HomeViewModel.swift in Sources */,
+				DDA582B21E9B4012DA6031C0 /* ImageCache.swift in Sources */,
 				FB681A4850A601A41FA06994 /* LocalGOConsumerApp.swift in Sources */,
 				960D1DF879A4CE3A75D8A128 /* MenuItem.swift in Sources */,
 				E7C4AD9B554A4E271CD44B61 /* MenuItemRow.swift in Sources */,

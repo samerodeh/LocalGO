@@ -21,6 +21,11 @@ struct HomeView: View {
             .background(AppTheme.background)
             .ignoresSafeArea(edges: .top)
             .navigationBarHidden(true)
+            .task {
+                // Warm the image cache on launch so every menu photo is ready
+                // (in memory/disk) before the user scrolls into it.
+                ImageCache.shared.prefetch(FoodThumbnail.allMenuImageURLs)
+            }
         }
     }
 
