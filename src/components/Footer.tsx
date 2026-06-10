@@ -27,61 +27,71 @@ const Footer: React.FC = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      {/* Decorative orange diagonal bar */}
-      <motion.div
-        className="footer__bar"
-        aria-hidden="true"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      />
-
       <div className="container footer__inner">
+
         {/* Brand */}
         <motion.div
           className="footer__brand"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <Logo />
-          <p className="footer__sub">{f.tagline}</p>
-          <p className="footer__location">{f.location}</p>
+          <p className="footer__desc">{f.tagline}</p>
+          <span className="footer__badge">
+            <span className="footer__badge-dot" />
+            {f.location}
+          </span>
         </motion.div>
 
         {/* Nav links */}
         <motion.div
-          className="footer__links"
-          initial={{ opacity: 0, y: 30 }}
+          className="footer__col"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <motion.a href="#about"      whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>{f.linkAbout}</motion.a>
-          <motion.a href="#howitworks" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>{f.linkHow}</motion.a>
-          <motion.a href="#features"   whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>{f.linkFeatures}</motion.a>
-          <motion.a onClick={() => go('marketplace')} style={{ cursor: 'pointer' }} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-            {f.linkMarketplace}
-          </motion.a>
-          <motion.a onClick={() => go('register')} style={{ cursor: 'pointer' }} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-            {f.linkRegister}
-          </motion.a>
+          <p className="footer__col-heading">Navigation</p>
+          <div className="footer__links">
+            <motion.a href="#about"      whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>{f.linkAbout}</motion.a>
+            <motion.a href="#howitworks" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>{f.linkHow}</motion.a>
+            <motion.a href="#features"   whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>{f.linkFeatures}</motion.a>
+            <motion.a onClick={() => go('marketplace')} style={{ cursor: 'pointer' }} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+              {f.linkMarketplace}
+            </motion.a>
+            <motion.a onClick={() => go('register')} style={{ cursor: 'pointer' }} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+              {f.linkRegister}
+            </motion.a>
+          </div>
         </motion.div>
 
         {/* Contact details */}
         <motion.div
-          className="footer__contact"
-          initial={{ opacity: 0, y: 30 }}
+          className="footer__col"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <p><strong>T</strong> 514.555.0199</p>
-          <p><strong>E</strong> hello@localgo.ca</p>
-          <p><strong>W</strong> www.localgo.ca</p>
+          <p className="footer__col-heading">Contact</p>
+          <div className="footer__contact">
+            <div className="footer__contact-item">
+              <span className="footer__contact-label">T</span>
+              <span>514.555.0199</span>
+            </div>
+            <div className="footer__contact-item">
+              <span className="footer__contact-label">E</span>
+              <span>samerodeh.dev@gmail.com</span>
+            </div>
+            <div className="footer__contact-item">
+              <span className="footer__contact-label">W</span>
+              <span>samerodeh.dev</span>
+            </div>
+          </div>
         </motion.div>
+
       </div>
 
       {/* Bottom bar */}
@@ -92,8 +102,11 @@ const Footer: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <div className="container">
-          <span>{f.pricing}</span>
+        <div className="container footer__bottom-inner">
+          <div className="footer__bottom-left">
+            <span className="footer__bottom-dot" />
+            <span>{f.pricing}</span>
+          </div>
           <span>&copy; {new Date().getFullYear()} {f.copyright}</span>
         </div>
       </motion.div>

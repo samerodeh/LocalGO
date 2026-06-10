@@ -6,9 +6,11 @@
  * Steps animate in with a spring effect as they enter the viewport.
  */
 
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { useLang } from '../context/LanguageContext'
+
+const DeliveryScene = lazy(() => import('../components/three/DeliveryScene'))
 
 const HowItWorks: React.FC = () => {
   const { T } = useLang()
@@ -43,6 +45,21 @@ const HowItWorks: React.FC = () => {
               <span key={i}>{line}{i === 0 && <br />}</span>
             ))}
           </h2>
+        </motion.div>
+
+        {/* 3D delivery scene */}
+        <motion.div
+          className="how__3d"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          aria-hidden="true"
+        >
+          <div className="how__3d-hint">Drag to explore</div>
+          <Suspense fallback={<div className="how__3d-fallback" />}>
+            <DeliveryScene />
+          </Suspense>
         </motion.div>
 
         <div className="steps">

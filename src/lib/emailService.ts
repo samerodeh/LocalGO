@@ -1,32 +1,19 @@
 /**
- * emailService.ts
+ * emailService.ts — powered by Web3Forms
  *
- * Thin wrapper around EmailJS for sending form submissions.
+ * Setup (one-time, ~30 seconds):
+ *   1. Go to https://web3forms.com/access
+ *   2. Enter your email → get a free access key instantly (no sign-up)
+ *   3. Create /Users/samerodeh/localgo-landing/.env.local and add:
+ *        VITE_W3F_KEY=your_access_key_here
+ *   4. Restart the dev server — done.
  *
- * Two templates are used:
- *   - REGISTRATION: business partner registration form (RegisterPage)
- *   - CONTACT:      general partner enquiry form (Contact section)
- *
- * Required environment variables (set in Replit Secrets):
- *   VITE_EMAILJS_SERVICE_ID       — from EmailJS dashboard › Email Services
- *   VITE_EMAILJS_TEMPLATE_REG     — template ID for the registration form
- *   VITE_EMAILJS_TEMPLATE_CONTACT — template ID for the contact form
- *   VITE_EMAILJS_PUBLIC_KEY       — from EmailJS account settings › API Keys
- *
- * EmailJS sends the variables as {{ variable_name }} in your template.
- * See the README comment at the bottom of this file for template setup.
+ * Free tier: 250 emails/month, emails land in your inbox directly.
  */
 
-import emailjs from '@emailjs/browser'
+const ACCESS_KEY = import.meta.env.VITE_W3F_KEY as string | undefined
 
-const SERVICE_ID        = import.meta.env.VITE_EMAILJS_SERVICE_ID        as string
-const TEMPLATE_REG      = import.meta.env.VITE_EMAILJS_TEMPLATE_REG      as string
-const TEMPLATE_CONTACT  = import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT  as string
-const PUBLIC_KEY        = import.meta.env.VITE_EMAILJS_PUBLIC_KEY        as string
-
-/** Returns true if all four env vars are configured */
-export const emailConfigured = () =>
-  Boolean(SERVICE_ID && TEMPLATE_REG && TEMPLATE_CONTACT && PUBLIC_KEY)
+export const emailConfigured = () => Boolean(ACCESS_KEY)
 
 // ─── Registration form ────────────────────────────────────────────────────
 
@@ -41,26 +28,27 @@ export interface RegistrationPayload {
   description:  string
 }
 
-/**
- * Send a business registration notification.
- * Maps form fields to EmailJS template variables.
- */
 export async function sendRegistration(data: RegistrationPayload): Promise<void> {
-  await emailjs.send(
-    SERVICE_ID,
-    TEMPLATE_REG,
-    {
-      from_name:    data.ownerName,
-      business_name:data.businessName,
-      from_email:   data.email,
-      phone:        data.phone,
-      business_type:data.businessType,
-      address:      data.address,
-      daily_orders: data.dailyOrders,
-      description:  data.description,
-    },
-    PUBLIC_KEY,
-  )
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      access_key:    ACCESS_KEY,
+      subject:       `New Partner Registration: ${data.businessName}`,
+      from_name:     data.ownerName,
+      replyto:       data.email,
+      'Owner Name':  data.ownerName,
+      'Business':    data.businessName,
+      'Email':       data.email,
+      'Phone':       data.phone,
+      'Type':        data.businessType,
+      'Address':     data.address,
+      'Daily Orders':data.dailyOrders,
+      'Description': data.description,
+    }),
+  })
+  const json = await res.json()
+  if (!json.success) throw new Error(json.message ?? 'Submission failed')
 }
 
 // ─── Contact / enquiry form ───────────────────────────────────────────────
@@ -72,58 +60,21 @@ export interface ContactPayload {
   message:  string
 }
 
-/**
- * Send a general partner enquiry notification.
- */
 export async function sendContact(data: ContactPayload): Promise<void> {
-  await emailjs.send(
-    SERVICE_ID,
-    TEMPLATE_CONTACT,
-    {
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      access_key:   ACCESS_KEY,
+      subject:      `New Partner Enquiry: ${data.business}`,
       from_name:    data.name,
-      business_name:data.business,
-      from_email:   data.email,
-      message:      data.message,
-    },
-    PUBLIC_KEY,
-  )
+      replyto:      data.email,
+      'Name':       data.name,
+      'Business':   data.business,
+      'Email':      data.email,
+      'Message':    data.message,
+    }),
+  })
+  const json = await res.json()
+  if (!json.success) throw new Error(json.message ?? 'Submission failed')
 }
-
-/*
- * ─── EmailJS Template Setup Guide ─────────────────────────────────────────
- *
- * 1. Sign up free at https://www.emailjs.com  (200 emails/month free)
- *
- * 2. Add an email service:
- *    Dashboard → Email Services → Add New Service → Gmail / Outlook / other
- *    Copy the "Service ID" → set as VITE_EMAILJS_SERVICE_ID
- *
- * 3. Create the REGISTRATION template:
- *    Dashboard → Email Templates → Create New Template
- *    Subject:  New Partner Registration: {{business_name}}
- *    Body example:
- *      Owner:         {{from_name}}
- *      Business:      {{business_name}}
- *      Email:         {{from_email}}
- *      Phone:         {{phone}}
- *      Type:          {{business_type}}
- *      Address:       {{address}}
- *      Daily orders:  {{daily_orders}}
- *      Description:   {{description}}
- *    Copy the "Template ID" → set as VITE_EMAILJS_TEMPLATE_REG
- *
- * 4. Create the CONTACT template:
- *    Subject:  New Partner Enquiry: {{business_name}}
- *    Body example:
- *      Name:     {{from_name}}
- *      Business: {{business_name}}
- *      Email:    {{from_email}}
- *      Message:  {{message}}
- *    Copy the "Template ID" → set as VITE_EMAILJS_TEMPLATE_CONTACT
- *
- * 5. Get your Public Key:
- *    Account → API Keys → Public Key
- *    Set as VITE_EMAILJS_PUBLIC_KEY
- *
- * ─────────────────────────────────────────────────────────────────────────
- */

@@ -6,7 +6,7 @@
  * Cards animate in with a slight 3-D Y-rotation as they enter the viewport.
  */
 
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { useLang } from '../context/LanguageContext'
 import {
@@ -17,6 +17,8 @@ import {
   IconBarChart,
   IconHeadphones,
 } from '../icons'
+
+const FeaturesOrb = lazy(() => import('../components/three/FeaturesOrb'))
 
 const ICONS = [IconMapPin, IconZap, IconTrendingUp, IconShoppingBag, IconBarChart, IconHeadphones]
 
@@ -33,6 +35,13 @@ const Features: React.FC = () => {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.8 }}
     >
+      {/* Subtle 3D orb in background corner */}
+      <div className="features__orb" aria-hidden="true">
+        <Suspense fallback={null}>
+          <FeaturesOrb />
+        </Suspense>
+      </div>
+
       <div className="container">
         <motion.div
           className="section-header section-header--light"

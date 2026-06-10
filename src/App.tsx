@@ -35,6 +35,7 @@ import { RouterCtx, Page }       from './context/RouterContext'
 import { LanguageProvider }      from './context/LanguageContext'
 import Nav                       from './components/Nav'
 import Footer                    from './components/Footer'
+import CustomCursor              from './components/CustomCursor'
 import HomePage                  from './pages/HomePage'
 import MarketplacePage           from './pages/MarketplacePage'
 import RegisterPage              from './pages/RegisterPage'
@@ -52,6 +53,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <RouterCtx.Provider value={{ page, go }}>
+        <CustomCursor />
         <Nav />
         <main>
           <AnimatePresence mode="wait">
