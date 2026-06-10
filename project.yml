@@ -1,0 +1,25 @@
+name: LocalGODriver
+options:
+  bundleIdPrefix: com.localgo
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15"
+  createIntermediateGroups: true
+
+targets:
+  LocalGODriver:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: LocalGODriver
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.localgo.driver
+        MARKETING_VERSION: 1.0.0
+        CURRENT_PROJECT_VERSION: 1
+        INFOPLIST_FILE: LocalGODriver/Info.plist
+        SWIFT_VERSION: 5.9
+        IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_STYLE: Automatic

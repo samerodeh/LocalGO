@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070D01BF412B15FBD63FEAD9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582C47937F41FBBA75D2C9 /* DashboardView.swift */; };
+		2411CFB7531E2843949CF98C /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DD7C9C22BA5685E49A42C /* SampleData.swift */; };
+		5A03BBF3133088D1425A6556 /* ActiveDeliveryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39EB23EC59F19A81E97EF2 /* ActiveDeliveryCard.swift */; };
+		606D497B5713A24A2E5743BD /* DriverProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CDAFEA7D19176B76B1C327 /* DriverProfileView.swift */; };
+		6EA60D3F272E4F5D6A037B7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACBB7980586626A016600A /* ContentView.swift */; };
+		91EF3F4AEA4A52B2DB6B3CC6 /* LocalGODriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1452C24FA68770030D1A3B2 /* LocalGODriverApp.swift */; };
+		98CCC965E697BAFE26C2F857 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDB93D1F00C03DD87E5C50 /* AppTheme.swift */; };
+		9A0FC75A905DC733835B8C0F /* EarningsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0356A6AC529E3356959B528 /* EarningsView.swift */; };
+		C6FB65A095295533C3470C5F /* DeliveryOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67272B3CF8FDC2438680E271 /* DeliveryOrder.swift */; };
+		EDB0325DEBD2A412C8102539 /* DriverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2AE235B4B56EA25C7CAF1 /* DriverViewModel.swift */; };
+		FBCF85DDD7FCF5EF8EF973CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9207632F0158AE534DD8A72D /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04CDAFEA7D19176B76B1C327 /* DriverProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileView.swift; sourceTree = "<group>"; };
+		14582C47937F41FBBA75D2C9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		5ABDB93D1F00C03DD87E5C50 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		5CEB4A32A1B19F16A71F73BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5FBBFC3B2BAE3F85FEF1802C /* LocalGODriver.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocalGODriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67272B3CF8FDC2438680E271 /* DeliveryOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrder.swift; sourceTree = "<group>"; };
+		7FC2AE235B4B56EA25C7CAF1 /* DriverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewModel.swift; sourceTree = "<group>"; };
+		8F39EB23EC59F19A81E97EF2 /* ActiveDeliveryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveDeliveryCard.swift; sourceTree = "<group>"; };
+		9207632F0158AE534DD8A72D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0356A6AC529E3356959B528 /* EarningsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsView.swift; sourceTree = "<group>"; };
+		D1452C24FA68770030D1A3B2 /* LocalGODriverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGODriverApp.swift; sourceTree = "<group>"; };
+		EFACBB7980586626A016600A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F50DD7C9C22BA5685E49A42C /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1CDB8B404FF59ECD36D2B8C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FBBFC3B2BAE3F85FEF1802C /* LocalGODriver.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		419D9B545A67F2F6038B82A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				67272B3CF8FDC2438680E271 /* DeliveryOrder.swift */,
+				F50DD7C9C22BA5685E49A42C /* SampleData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75A8D1689942AD587AEDD088 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7FC2AE235B4B56EA25C7CAF1 /* DriverViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AC30DDE2B23A069B963DD72D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F39EB23EC59F19A81E97EF2 /* ActiveDeliveryCard.swift */,
+				14582C47937F41FBBA75D2C9 /* DashboardView.swift */,
+				04CDAFEA7D19176B76B1C327 /* DriverProfileView.swift */,
+				C0356A6AC529E3356959B528 /* EarningsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B72F6F84F29685E161A20FFE /* LocalGODriver */ = {
+			isa = PBXGroup;
+			children = (
+				9207632F0158AE534DD8A72D /* Assets.xcassets */,
+				EFACBB7980586626A016600A /* ContentView.swift */,
+				5CEB4A32A1B19F16A71F73BB /* Info.plist */,
+				D1452C24FA68770030D1A3B2 /* LocalGODriverApp.swift */,
+				419D9B545A67F2F6038B82A4 /* Models */,
+				BD1B35B374C800557FB51F25 /* Theme */,
+				75A8D1689942AD587AEDD088 /* ViewModels */,
+				AC30DDE2B23A069B963DD72D /* Views */,
+			);
+			path = LocalGODriver;
+			sourceTree = "<group>";
+		};
+		BD1B35B374C800557FB51F25 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				5ABDB93D1F00C03DD87E5C50 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		FD4C9E919D0321526AAB0CC7 = {
+			isa = PBXGroup;
+			children = (
+				B72F6F84F29685E161A20FFE /* LocalGODriver */,
+				1CDB8B404FF59ECD36D2B8C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		998E4B197B23DF94DD8FD35B /* LocalGODriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE7E28B15451855722F917DB /* Build configuration list for PBXNativeTarget "LocalGODriver" */;
+			buildPhases = (
+				D0F50F60B6590D20ACF23B68 /* Sources */,
+				1E73641DFAA69802C3FBA722 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocalGODriver;
+			packageProductDependencies = (
+			);
+			productName = LocalGODriver;
+			productReference = 5FBBFC3B2BAE3F85FEF1802C /* LocalGODriver.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1885048CE7384FAAAA4AE080 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					998E4B197B23DF94DD8FD35B = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 233AB2DED5B36705C1C44BB4 /* Build configuration list for PBXProject "LocalGODriver" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FD4C9E919D0321526AAB0CC7;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1CDB8B404FF59ECD36D2B8C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				998E4B197B23DF94DD8FD35B /* LocalGODriver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E73641DFAA69802C3FBA722 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBCF85DDD7FCF5EF8EF973CC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0F50F60B6590D20ACF23B68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A03BBF3133088D1425A6556 /* ActiveDeliveryCard.swift in Sources */,
+				98CCC965E697BAFE26C2F857 /* AppTheme.swift in Sources */,
+				6EA60D3F272E4F5D6A037B7D /* ContentView.swift in Sources */,
+				070D01BF412B15FBD63FEAD9 /* DashboardView.swift in Sources */,
+				C6FB65A095295533C3470C5F /* DeliveryOrder.swift in Sources */,
+				606D497B5713A24A2E5743BD /* DriverProfileView.swift in Sources */,
+				EDB0325DEBD2A412C8102539 /* DriverViewModel.swift in Sources */,
+				9A0FC75A905DC733835B8C0F /* EarningsView.swift in Sources */,
+				91EF3F4AEA4A52B2DB6B3CC6 /* LocalGODriverApp.swift in Sources */,
+				2411CFB7531E2843949CF98C /* SampleData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1EEFD983A92976AF3B2D6D78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = LocalGODriver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.localgo.driver;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3702A1B981BF93FDC6A2BDE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = LocalGODriver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.localgo.driver;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3A5DF1C0B50CBA3EE4D93F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EB83BABB0B21425690E2F20B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		233AB2DED5B36705C1C44BB4 /* Build configuration list for PBXProject "LocalGODriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB83BABB0B21425690E2F20B /* Debug */,
+				C3A5DF1C0B50CBA3EE4D93F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE7E28B15451855722F917DB /* Build configuration list for PBXNativeTarget "LocalGODriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3702A1B981BF93FDC6A2BDE4 /* Debug */,
+				1EEFD983A92976AF3B2D6D78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1885048CE7384FAAAA4AE080 /* Project object */;
+}
