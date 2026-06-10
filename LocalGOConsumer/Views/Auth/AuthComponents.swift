@@ -101,6 +101,57 @@ struct OrDivider: View {
     }
 }
 
+// MARK: - One-time-code field (6 boxes, SMS/Mail autofill)
+struct OTPCodeField: View {
+    @Binding var code: String
+    var length: Int = 6
+    var onComplete: () -> Void = {}
+
+    @FocusState private var focused: Bool
+
+    var body: some View {
+        ZStack {
+            // Hidden field captures input + enables one-time-code autofill.
+            TextField("", text: $code)
+                .keyboardType(.numberPad)
+                .textContentType(.oneTimeCode)
+                .focused($focused)
+                .opacity(0.01)
+                .onChange(of: code) { newValue in
+                    let digits = String(newValue.filter(\.isNumber).prefix(length))
+                    if digits != code { code = digits }
+                    if digits.count == length { onComplete() }
+                }
+
+            HStack(spacing: 10) {
+                ForEach(0..<length, id: \.self) { index in
+                    box(at: index)
+                }
+            }
+            .contentShape(Rectangle())
+            .onTapGesture { focused = true }
+        }
+        .onAppear { focused = true }
+    }
+
+    private func box(at index: Int) -> some View {
+        let chars = Array(code)
+        let isFilled = index < chars.count
+        let isCurrent = index == chars.count && focused
+        return Text(isFilled ? String(chars[index]) : "")
+            .font(.system(size: 24, weight: .bold))
+            .foregroundColor(AppTheme.textPrimary)
+            .frame(width: 46, height: 56)
+            .background(AppTheme.surface)
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .stroke(isCurrent || isFilled ? AppTheme.primary : AppTheme.divider,
+                            lineWidth: isCurrent ? 2 : 1)
+            )
+    }
+}
+
 // MARK: - Password strength meter
 struct PasswordStrengthMeter: View {
     let password: String

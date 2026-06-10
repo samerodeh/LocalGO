@@ -16,7 +16,7 @@ struct StoredCredential: Codable {
 }
 
 final class CredentialStore {
-    private let defaultsKey = "com.localgo.credentialStore.v1"
+    private let defaultsKey = "com.localgo.credentialStore.v2"
     private var byEmail: [String: StoredCredential]
 
     init() {
@@ -74,6 +74,31 @@ final class CredentialStore {
         byEmail[key]?.user.name = name
         byEmail[key]?.user.phone = phone
         persist()
+    }
+
+    func setEmailVerified(id: String, _ verified: Bool) {
+        guard let key = byEmail.first(where: { $0.value.user.id == id })?.key else { return }
+        byEmail[key]?.user.emailVerified = verified
+        persist()
+    }
+
+    func setTwoFactor(id: String, _ enabled: Bool) {
+        guard let key = byEmail.first(where: { $0.value.user.id == id })?.key else { return }
+        byEmail[key]?.user.twoFactorEnabled = enabled
+        persist()
+    }
+
+    /// Replace the password (new salt + hash). Returns the affected user.
+    @discardableResult
+    func updatePassword(email: String, newPassword: String) -> AppUser? {
+        let key = email.normalizedEmail
+        guard var credential = byEmail[key] else { return nil }
+        let salt = Self.makeSalt()
+        credential.salt = salt
+        credential.passwordHash = Self.hash(password: newPassword, salt: salt)
+        byEmail[key] = credential
+        persist()
+        return credential.user
     }
 
     // MARK: - Hashing

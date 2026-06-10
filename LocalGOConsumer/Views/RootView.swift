@@ -12,6 +12,13 @@ struct RootView: View {
             case .signedOut:
                 AuthFlowView()
                     .transition(.opacity)
+            case .verifying:
+                if let challenge = auth.pendingChallenge {
+                    VerificationView(challenge: challenge)
+                        .transition(.opacity)
+                } else {
+                    AuthFlowView().transition(.opacity)
+                }
             case .signedIn:
                 ContentView()
                     .transition(.opacity)

@@ -15,6 +15,8 @@ struct AppUser: Codable, Identifiable, Equatable {
     var phone: String
     let provider: AuthProvider
     let createdAt: Date
+    var emailVerified: Bool = false
+    var twoFactorEnabled: Bool = false
 
     var isGuest: Bool { provider == .guest }
 
@@ -24,14 +26,47 @@ struct AppUser: Codable, Identifiable, Equatable {
         let result = String(letters).uppercased()
         return result.isEmpty ? "?" : result
     }
+
+    // Tolerant decoding so older stored records (without the new flags) still load.
+    init(id: String, name: String, email: String, phone: String,
+         provider: AuthProvider, createdAt: Date,
+         emailVerified: Bool = false, twoFactorEnabled: Bool = false) {
+        self.id = id; self.name = name; self.email = email; self.phone = phone
+        self.provider = provider; self.createdAt = createdAt
+        self.emailVerified = emailVerified; self.twoFactorEnabled = twoFactorEnabled
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(String.self, forKey: .id)
+        name = try c.decode(String.self, forKey: .name)
+        email = try c.decode(String.self, forKey: .email)
+        phone = try c.decode(String.self, forKey: .phone)
+        provider = try c.decode(AuthProvider.self, forKey: .provider)
+        createdAt = try c.decode(Date.self, forKey: .createdAt)
+        emailVerified = try c.decodeIfPresent(Bool.self, forKey: .emailVerified) ?? false
+        twoFactorEnabled = try c.decodeIfPresent(Bool.self, forKey: .twoFactorEnabled) ?? false
+    }
 }
 
 // MARK: - Auth state
 
 enum AuthState: Equatable {
-    case loading      // checking for a stored session on launch
+    case loading       // checking for a stored session on launch
     case signedOut
+    case verifying     // awaiting an emailed code (sign-up verify or 2FA)
     case signedIn
+}
+
+/// What the pending emailed-code challenge is for.
+enum AuthChallengeKind: Equatable {
+    case signupVerification
+    case twoFactor
+}
+
+struct PendingChallenge: Equatable {
+    let email: String
+    let kind: AuthChallengeKind
 }
 
 // MARK: - Errors
@@ -40,10 +75,16 @@ enum AuthError: LocalizedError, Equatable {
     case nameRequired
     case invalidEmail
     case weakPassword
+    case commonPassword
     case passwordsDoNotMatch
     case emailAlreadyRegistered
-    case userNotFound
-    case wrongPassword
+    case invalidCredentials          // generic — anti-enumeration
+    case accountLocked(retryAfter: Int)
+    case invalidCode
+    case codeExpired
+    case tooManyCodeAttempts
+    case resendTooSoon(retryAfter: Int)
+    case emailSendFailed
     case appleSignInFailed
     case unknown
 
@@ -51,11 +92,17 @@ enum AuthError: LocalizedError, Equatable {
         switch self {
         case .nameRequired:           return "Please enter your name."
         case .invalidEmail:           return "Enter a valid email address."
-        case .weakPassword:           return "Password must be at least 8 characters and include a letter and a number."
+        case .weakPassword:           return "Use at least 8 characters with a letter and a number."
+        case .commonPassword:         return "That password is too common — pick something harder to guess."
         case .passwordsDoNotMatch:    return "The passwords don't match."
         case .emailAlreadyRegistered: return "An account with this email already exists. Try signing in."
-        case .userNotFound:           return "No account found for this email. Create one to get started."
-        case .wrongPassword:          return "Incorrect password. Please try again."
+        case .invalidCredentials:     return "Incorrect email or password."
+        case .accountLocked(let s):   return "Too many attempts. Try again in \(s)s."
+        case .invalidCode:            return "That code isn't right. Please check and try again."
+        case .codeExpired:            return "That code has expired. Tap Resend for a new one."
+        case .tooManyCodeAttempts:    return "Too many incorrect codes. Tap Resend to get a fresh one."
+        case .resendTooSoon(let s):   return "Please wait \(s)s before requesting another code."
+        case .emailSendFailed:        return "We couldn't send the email. Check your connection and try again."
         case .appleSignInFailed:      return "Sign in with Apple isn't available in this build. Use email instead."
         case .unknown:                return "Something went wrong. Please try again."
         }

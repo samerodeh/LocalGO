@@ -5,6 +5,7 @@ struct ProfileView: View {
 
     @State private var name = ""
     @State private var phone = ""
+    @State private var twoFactorOn = false
     @State private var showSignOutConfirm = false
     @State private var savedToast = false
 
@@ -20,6 +21,7 @@ struct ProfileView: View {
                         guestCard
                     } else {
                         editableFields
+                        securitySection
                     }
 
                     optionsList
@@ -36,6 +38,7 @@ struct ProfileView: View {
             .onAppear {
                 name = user?.name ?? ""
                 phone = user?.phone ?? ""
+                twoFactorOn = user?.twoFactorEnabled ?? false
             }
             .overlay(alignment: .top) {
                 if savedToast {
@@ -138,6 +141,56 @@ struct ProfileView: View {
             Spacer()
         }
         .padding(16).cardStyle()
+    }
+
+    // MARK: - Security
+    private var securitySection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Security")
+                .font(.system(size: 13, weight: .bold)).foregroundColor(AppTheme.textSecondary)
+                .padding(.leading, 4)
+
+            VStack(spacing: 1) {
+                // Email verification status
+                HStack(spacing: 14) {
+                    iconBox("checkmark.seal.fill", color: user?.emailVerified == true ? AppTheme.green : .orange)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Email verification").font(.system(size: 15)).foregroundColor(AppTheme.textPrimary)
+                        Text(user?.emailVerified == true ? "Your email is verified" : "Not verified")
+                            .font(.system(size: 12)).foregroundColor(AppTheme.textSecondary)
+                    }
+                    Spacer()
+                    if user?.emailVerified == true {
+                        Image(systemName: "checkmark.circle.fill").foregroundColor(AppTheme.green)
+                    }
+                }
+                .padding(.horizontal, 16).padding(.vertical, 14).background(Color.white)
+
+                // Two-factor toggle
+                HStack(spacing: 14) {
+                    iconBox("lock.shield.fill", color: AppTheme.primary)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Two-factor authentication").font(.system(size: 15)).foregroundColor(AppTheme.textPrimary)
+                        Text("Email a sign-in code each time").font(.system(size: 12)).foregroundColor(AppTheme.textSecondary)
+                    }
+                    Spacer()
+                    Toggle("", isOn: $twoFactorOn)
+                        .labelsHidden().tint(AppTheme.primary)
+                        .onChange(of: twoFactorOn) { auth.setTwoFactor($0) }
+                }
+                .padding(.horizontal, 16).padding(.vertical, 14).background(Color.white)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: AppTheme.cardRadius, style: .continuous))
+            .shadow(color: .black.opacity(0.06), radius: 10, x: 0, y: 3)
+        }
+        .padding(.horizontal, 20)
+    }
+
+    private func iconBox(_ icon: String, color: Color) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 8, style: .continuous).fill(color.opacity(0.12)).frame(width: 36, height: 36)
+            Image(systemName: icon).font(.system(size: 15)).foregroundColor(color)
+        }
     }
 
     // MARK: - Options

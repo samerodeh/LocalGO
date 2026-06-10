@@ -8,7 +8,6 @@ struct LoginView: View {
     @State private var password = ""
     @State private var isLoading = false
     @State private var error: String?
-    @State private var showForgot = false
 
     private var canSubmit: Bool { !email.isEmpty && !password.isEmpty }
 
@@ -29,7 +28,9 @@ struct LoginView: View {
                               textContentType: .password, isSecure: true)
                 }
 
-                Button { showForgot = true } label: {
+                NavigationLink {
+                    ForgotPasswordView()
+                } label: {
                     Text("Forgot password?")
                         .font(.system(size: 14, weight: .semibold)).foregroundColor(AppTheme.primary)
                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -64,11 +65,6 @@ struct LoginView: View {
         )) {
             Button("OK") { error = nil }
         } message: { Text(error ?? "") }
-        .alert("Reset password", isPresented: $showForgot) {
-            Button("OK") {}
-        } message: {
-            Text("If an account exists for \(email.isEmpty ? "your email" : email), a reset link will be sent.")
-        }
     }
 
     private func submit() {
