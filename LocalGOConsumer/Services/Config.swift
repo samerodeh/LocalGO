@@ -9,4 +9,11 @@ enum Config {
     /// Your backend URL — must expose POST /create-payment-intent
     /// which returns { clientSecret, ephemeralKey, customer }
     static let backendURL = "https://your-backend-url.com"
+
+    /// True once real Stripe keys/backend are filled in. Until then the app
+    /// authorizes orders locally so the full flow (history, reorder) works in
+    /// the simulator without a backend.
+    static var isStripeConfigured: Bool {
+        !stripePublishableKey.contains("YOUR_STRIPE") && !backendURL.contains("your-backend")
+    }
 }

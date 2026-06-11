@@ -4,6 +4,8 @@ struct HomeView: View {
     @StateObject private var vm = HomeViewModel()
     @EnvironmentObject private var cartVM: CartViewModel
     @EnvironmentObject private var recEngine: RecommendationEngine
+    @EnvironmentObject private var orderService: OrderService
+    @EnvironmentObject private var auth: AuthService
 
     private let categories = ["All", "Pizza", "Manakish", "Grill", "Sides", "Drinks"]
     private let categoryIcons = ["square.grid.2x2.fill", "circle.fill", "flame.fill", "fork.knife", "leaf.fill", "cup.and.saucer.fill"]
@@ -16,6 +18,7 @@ struct HomeView: View {
                     searchBar.padding(.horizontal, 20).padding(.vertical, 16)
                     categoryRow.padding(.bottom, 24)
                     restaurantSection.padding(.horizontal, 20)
+                    buyAgainSection.padding(.top, 32)
                     popularSection.padding(.top, 32)
                 }
             }
@@ -26,6 +29,35 @@ struct HomeView: View {
                 // Warm the image cache on launch so every menu photo is ready
                 // (in memory/disk) before the user scrolls into it.
                 ImageCache.shared.prefetch(FoodThumbnail.allMenuImageURLs)
+            }
+            .onAppear { orderService.load(for: auth.currentUser?.id) }
+        }
+    }
+
+    // MARK: - Order Again (from order history)
+    @ViewBuilder
+    private var buyAgainSection: some View {
+        let items = recEngine.buyAgain(from: orderService.orders.flatMap(\.lines),
+                                       in: RestaurantData.altaib, limit: 10)
+        if !items.isEmpty {
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(spacing: 8) {
+                    Image(systemName: "arrow.counterclockwise.circle.fill").font(.system(size: 16)).foregroundColor(AppTheme.primary)
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text("Order Again").font(.system(size: 20, weight: .bold)).foregroundColor(AppTheme.textPrimary)
+                        Text("Your recent favorites, one tap away").font(.system(size: 12)).foregroundColor(AppTheme.textSecondary)
+                    }
+                }
+                .padding(.horizontal, 20)
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 14) {
+                        ForEach(items) { item in
+                            PopularItemCard(item: item, restaurant: RestaurantData.altaib)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                }
             }
         }
     }

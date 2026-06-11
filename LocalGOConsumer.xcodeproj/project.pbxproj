@@ -14,9 +14,11 @@
 		10D53F2BE6250EB2F8167354 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB91580BE554990693D6A04 /* EmailService.swift */; };
 		1E628605B8879386EE586D4F /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8024A40AB160D31F28DB3E /* Restaurant.swift */; };
 		248E35DDE1CDC90D75DD9180 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D9BC58802957623E409C8 /* AuthService.swift */; };
+		268388818DE988D3D7286EB8 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE1913590C67FEAAF846FC /* PaymentMethod.swift */; };
 		2B74DAC7DA659BB4099984CA /* AuthFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E6BEB5D99E3A9E3672B25F /* AuthFlowView.swift */; };
 		2D9DE7C230A40D5C2C462F0C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBA743819EB611D2C06DC5 /* HomeView.swift */; };
 		30174D2543F1A478DBB909BC /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C782BB9765486D7B907D9922 /* CartViewModel.swift */; };
+		32C11A1640FAFA005392FD99 /* PaymentMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD73012A0DC5E5E3C00BE1 /* PaymentMethodsView.swift */; };
 		367564975964975A10281638 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AC00D612CC0B1263B77BA8FB /* StripePaymentSheet */; };
 		400346166B258712B941B981 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D72E27521082EFB56FDC2A /* KeychainHelper.swift */; };
 		41535726E2915F0040AEADEA /* OrderTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FFD7618015B367E7099C /* OrderTrackingView.swift */; };
@@ -35,33 +37,43 @@
 		8F06D44AAFD9134A80CCD864 /* RecommendationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC9991217E576555604EBA /* RecommendationEngine.swift */; };
 		960D1DF879A4CE3A75D8A128 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC34CDBE5C34BE4CC203D1 /* MenuItem.swift */; };
 		97B4C7778753CCA5A4F45B0A /* AuthComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A8CA58CC92F49BCAA5CBA /* AuthComponents.swift */; };
+		9DAD9D3370A149C2C8FF87DA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C09AF8D3653E40330186CEB4 /* libsqlite3.tbd */; };
+		9F267FA379F4795B27B86100 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3C1B8B6F18BDF8CC402AA /* AddCardView.swift */; };
 		A43D838D4244A0A8590DA244 /* CartItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F47ECF79241567D50586D /* CartItemRow.swift */; };
 		A6CE54242E7CB3E1BEEBE2CB /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F2630CD4C07F4BA5AEF9A /* AuthModels.swift */; };
 		AB41600D8626A679D66CBB05 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B56AB21D303B4FD8E76C5 /* WelcomeView.swift */; };
 		AE0112B9F5CFA5637DC53509 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1DAE8F20C373A89A44817 /* Config.swift */; };
 		B4A6CAA1A1CFF1B6074C7414 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276BCCF0FEA89B5F5577999 /* ForgotPasswordView.swift */; };
 		B7DFFAC80C0CA9B299C0A5C1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B2DBB064B3AC3D1107B3D2 /* SignUpView.swift */; };
+		BDAC932E17A13564963C20CF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3BCBA9E29A298F0EC30B8 /* LocationManager.swift */; };
+		BDD357D0C64D526F7B5DC444 /* OrderHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE698563CF5EF50B0E3E79B /* OrderHistoryView.swift */; };
 		BF76D15AA3385B5A6BE90870 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8FEB1E3EF2DA75127163E /* ResetPasswordView.swift */; };
 		C0267589404C991D27F23051 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFAA8A87FCF9EF6264F11C /* AppTheme.swift */; };
 		C426AA93466EE3467E48D41F /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3956F98AD9C29AFE1162645 /* CheckoutViewModel.swift */; };
+		C5425AEDCB84BBA0FE6B0C18 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B9ED2C0AD72293AAB58124 /* PaymentService.swift */; };
 		CB627E5C7C31B6AA5BA5A9B6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465DA3D82A1CA1300B470749 /* RootView.swift */; };
 		D5884063F9CFF373361D7FB4 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B9BC8AC978EC488B962C7 /* Cart.swift */; };
 		D5F060DFF6E376FA8BCC6B8E /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB534D8B5B63073B67D728D /* VerificationView.swift */; };
+		D8FA7C34663ADAA1E1AC5E4D /* OrderRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8FF69D9744AF6472F1670 /* OrderRecord.swift */; };
 		DA5687D49A8C8FA77639A5E9 /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB43564B5EA74F5BB38891AF /* FullScreenImageView.swift */; };
 		DDA582B21E9B4012DA6031C0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34445A2EB9C46EB16144479 /* ImageCache.swift */; };
+		E4474B275BAB36520EBD505D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B079AA1F59268293FCD70C /* Database.swift */; };
 		E7C4AD9B554A4E271CD44B61 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE48CA8D31CCA341AAAD8380 /* MenuItemRow.swift */; };
 		F271789BCFE20DC3274DB3A9 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76359317E596A68CC67A2494 /* CartView.swift */; };
 		F681221FE6F14CB8E97760C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC89460C8F3429C2C2CB44 /* ContentView.swift */; };
+		F9B076960D729FCACC778FB0 /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1DDED77C9DA14927FA21 /* LocationPickerView.swift */; };
 		F9CB022BEBE2BB8DE95C6002 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10031E18B38D3565F81CF49 /* ProfileView.swift */; };
 		FB681A4850A601A41FA06994 /* LocalGOConsumerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4DB6B91B0D4E3E99819086 /* LocalGOConsumerApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B0B9BC8AC978EC488B962C7 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		17B3C1B8B6F18BDF8CC402AA /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 		20C8FEB1E3EF2DA75127163E /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		21DC89460C8F3429C2C2CB44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2EB24CB72291B34F64B3BFB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C140E7AC49429BECA437576 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
+		3CE698563CF5EF50B0E3E79B /* OrderHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView.swift; sourceTree = "<group>"; };
 		3D1B56AB21D303B4FD8E76C5 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		43CC9991217E576555604EBA /* RecommendationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationEngine.swift; sourceTree = "<group>"; };
 		465DA3D82A1CA1300B470749 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -75,7 +87,10 @@
 		9276BCCF0FEA89B5F5577999 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		9367439A96816A5DD80E9F4E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		985E45FD329F884D50E85B46 /* FoodImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImages.swift; sourceTree = "<group>"; };
+		9DBD73012A0DC5E5E3C00BE1 /* PaymentMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsView.swift; sourceTree = "<group>"; };
+		A2C8FF69D9744AF6472F1670 /* OrderRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRecord.swift; sourceTree = "<group>"; };
 		A578105152A39E3677DB9506 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		A5AE1913590C67FEAAF846FC /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
 		A87491258F9DCB473510245E /* CredentialStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialStore.swift; sourceTree = "<group>"; };
 		A8D72E27521082EFB56FDC2A /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		ACB534D8B5B63073B67D728D /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
@@ -84,6 +99,7 @@
 		B1BBA743819EB611D2C06DC5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B4C03F7375480F9EBDC07E3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C03CDB1EE66FEDECE6D623E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C09AF8D3653E40330186CEB4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C0AD91B35930626ED6BF7EAE /* LocalGOConsumer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocalGOConsumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1ACEE50AF13E6EEED188836 /* SalesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesData.swift; sourceTree = "<group>"; };
 		C34445A2EB9C46EB16144479 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -91,9 +107,11 @@
 		C782BB9765486D7B907D9922 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		C7B4B34A9F48A71EB3B14D15 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		CB43564B5EA74F5BB38891AF /* FullScreenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageView.swift; sourceTree = "<group>"; };
+		CBA3BCBA9E29A298F0EC30B8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D0CFAA8A87FCF9EF6264F11C /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		D1E6BEB5D99E3A9E3672B25F /* AuthFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowView.swift; sourceTree = "<group>"; };
 		D62D9BC58802957623E409C8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		D9B079AA1F59268293FCD70C /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DE48CA8D31CCA341AAAD8380 /* MenuItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemRow.swift; sourceTree = "<group>"; };
 		DE8024A40AB160D31F28DB3E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		DEB91580BE554990693D6A04 /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
@@ -104,7 +122,9 @@
 		E98F47ECF79241567D50586D /* CartItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemRow.swift; sourceTree = "<group>"; };
 		EAAC34CDBE5C34BE4CC203D1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		F28B7B8DAD92C3C486A44143 /* RestaurantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantData.swift; sourceTree = "<group>"; };
+		F35E1DDED77C9DA14927FA21 /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		F5B1DAE8F20C373A89A44817 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F6B9ED2C0AD72293AAB58124 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				367564975964975A10281638 /* StripePaymentSheet in Frameworks */,
+				9DAD9D3370A149C2C8FF87DA /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				5E73F4417CFCEB51FB232C8A /* LocalGOConsumer */,
+				D3859AD312BE726673405BCA /* Frameworks */,
 				BB1F268F9AD4D38DAFFD8D41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,6 +185,8 @@
 				1DE77E8929D144AE36934D37 /* Checkout */,
 				DE1E4D4A64AE4431EA7621F3 /* Components */,
 				1F9CD46C6705640E22B36624 /* Home */,
+				3C2AA41A2A2C578D5B423ADE /* Location */,
+				6D95E41445C8277B0A700900 /* Payment */,
 				C9C863C3AAD90AC724F86491 /* Profile */,
 				829A9E93AB0E702A30E619FF /* Restaurant */,
 				D8C6A2176CF39F59937510EE /* Tracking */,
@@ -177,9 +201,19 @@
 				0B0B9BC8AC978EC488B962C7 /* Cart.swift */,
 				EAAC34CDBE5C34BE4CC203D1 /* MenuItem.swift */,
 				E3DCE08AE98E58CC843353C2 /* Order.swift */,
+				A2C8FF69D9744AF6472F1670 /* OrderRecord.swift */,
+				A5AE1913590C67FEAAF846FC /* PaymentMethod.swift */,
 				DE8024A40AB160D31F28DB3E /* Restaurant.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3C2AA41A2A2C578D5B423ADE /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F35E1DDED77C9DA14927FA21 /* LocationPickerView.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		48E25C10533DBE786A8C18D8 /* Data */ = {
@@ -210,6 +244,15 @@
 			path = LocalGOConsumer;
 			sourceTree = "<group>";
 		};
+		6D95E41445C8277B0A700900 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				17B3C1B8B6F18BDF8CC402AA /* AddCardView.swift */,
+				9DBD73012A0DC5E5E3C00BE1 /* PaymentMethodsView.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 		70541B34F845862AE999DBDF /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,12 +276,15 @@
 				D62D9BC58802957623E409C8 /* AuthService.swift */,
 				F5B1DAE8F20C373A89A44817 /* Config.swift */,
 				A87491258F9DCB473510245E /* CredentialStore.swift */,
+				D9B079AA1F59268293FCD70C /* Database.swift */,
 				DEB91580BE554990693D6A04 /* EmailService.swift */,
 				C34445A2EB9C46EB16144479 /* ImageCache.swift */,
 				A8D72E27521082EFB56FDC2A /* KeychainHelper.swift */,
+				CBA3BCBA9E29A298F0EC30B8 /* LocationManager.swift */,
 				668A8672C8A9A4EFE5135982 /* LoginThrottle.swift */,
 				3C140E7AC49429BECA437576 /* OrderService.swift */,
 				C5D11D1D00002FE8E1779537 /* OTPService.swift */,
+				F6B9ED2C0AD72293AAB58124 /* PaymentService.swift */,
 				43CC9991217E576555604EBA /* RecommendationEngine.swift */,
 			);
 			path = Services;
@@ -255,9 +301,18 @@
 		C9C863C3AAD90AC724F86491 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3CE698563CF5EF50B0E3E79B /* OrderHistoryView.swift */,
 				B10031E18B38D3565F81CF49 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D3859AD312BE726673405BCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C09AF8D3653E40330186CEB4 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D8C6A2176CF39F59937510EE /* Tracking */ = {
@@ -377,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F267FA379F4795B27B86100 /* AddCardView.swift in Sources */,
 				C0267589404C991D27F23051 /* AppTheme.swift in Sources */,
 				8B61E4FB3AF952F0BB50D680 /* AppleSignInButton.swift in Sources */,
 				97B4C7778753CCA5A4F45B0A /* AuthComponents.swift in Sources */,
@@ -393,6 +449,7 @@
 				AE0112B9F5CFA5637DC53509 /* Config.swift in Sources */,
 				F681221FE6F14CB8E97760C7 /* ContentView.swift in Sources */,
 				41C456A6422FFBF1F9163CB9 /* CredentialStore.swift in Sources */,
+				E4474B275BAB36520EBD505D /* Database.swift in Sources */,
 				10D53F2BE6250EB2F8167354 /* EmailService.swift in Sources */,
 				03C31AC914D810D69379ADF5 /* FoodImages.swift in Sources */,
 				B4A6CAA1A1CFF1B6074C7414 /* ForgotPasswordView.swift in Sources */,
@@ -402,14 +459,21 @@
 				DDA582B21E9B4012DA6031C0 /* ImageCache.swift in Sources */,
 				400346166B258712B941B981 /* KeychainHelper.swift in Sources */,
 				FB681A4850A601A41FA06994 /* LocalGOConsumerApp.swift in Sources */,
+				BDAC932E17A13564963C20CF /* LocationManager.swift in Sources */,
+				F9B076960D729FCACC778FB0 /* LocationPickerView.swift in Sources */,
 				0C721F5A1C1FDFBBDAE296BD /* LoginThrottle.swift in Sources */,
 				47DE0DCC7FA7D42A910F2085 /* LoginView.swift in Sources */,
 				960D1DF879A4CE3A75D8A128 /* MenuItem.swift in Sources */,
 				E7C4AD9B554A4E271CD44B61 /* MenuItemRow.swift in Sources */,
 				039304FBCB45C47CCA09316A /* OTPService.swift in Sources */,
 				55CB0D585E028CFAA74B9D61 /* Order.swift in Sources */,
+				BDD357D0C64D526F7B5DC444 /* OrderHistoryView.swift in Sources */,
+				D8FA7C34663ADAA1E1AC5E4D /* OrderRecord.swift in Sources */,
 				0A668994A1CEAFEDC576E434 /* OrderService.swift in Sources */,
 				41535726E2915F0040AEADEA /* OrderTrackingView.swift in Sources */,
+				268388818DE988D3D7286EB8 /* PaymentMethod.swift in Sources */,
+				32C11A1640FAFA005392FD99 /* PaymentMethodsView.swift in Sources */,
+				C5425AEDCB84BBA0FE6B0C18 /* PaymentService.swift in Sources */,
 				F9CB022BEBE2BB8DE95C6002 /* ProfileView.swift in Sources */,
 				8F06D44AAFD9134A80CCD864 /* RecommendationEngine.swift in Sources */,
 				BF76D15AA3385B5A6BE90870 /* ResetPasswordView.swift in Sources */,

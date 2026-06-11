@@ -21,6 +21,7 @@ targets:
     dependencies:
       - package: StripeIOS
         product: StripePaymentSheet
+      - sdk: libsqlite3.tbd
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.localgo.consumer

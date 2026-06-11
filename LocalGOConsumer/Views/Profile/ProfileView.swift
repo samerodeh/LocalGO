@@ -196,9 +196,13 @@ struct ProfileView: View {
     // MARK: - Options
     private var optionsList: some View {
         VStack(spacing: 1) {
-            optionRow(icon: "clock.arrow.circlepath",  label: "Order History",      color: AppTheme.navy)
+            NavigationLink { OrderHistoryView() } label: {
+                optionRowLabel(icon: "clock.arrow.circlepath", label: "Order History", color: AppTheme.navy)
+            }
+            NavigationLink { PaymentMethodsView() } label: {
+                optionRowLabel(icon: "creditcard.fill", label: "Payment Methods", color: .purple)
+            }
             optionRow(icon: "mappin.and.ellipse",      label: "Saved Addresses",    color: .blue)
-            optionRow(icon: "creditcard.fill",         label: "Payment Methods",    color: .purple)
             optionRow(icon: "bell.fill",               label: "Notifications",      color: .orange)
             optionRow(icon: "questionmark.circle.fill",label: "Help & Support",     color: .teal)
             optionRow(icon: "lock.shield.fill",        label: "Privacy & Security", color: AppTheme.green)
@@ -209,19 +213,21 @@ struct ProfileView: View {
     }
 
     private func optionRow(icon: String, label: String, color: Color) -> some View {
-        Button {} label: {
-            HStack(spacing: 14) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8, style: .continuous).fill(color.opacity(0.12)).frame(width: 36, height: 36)
-                    Image(systemName: icon).font(.system(size: 15)).foregroundColor(color)
-                }
-                Text(label).font(.system(size: 15)).foregroundColor(AppTheme.textPrimary)
-                Spacer()
-                Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold)).foregroundColor(AppTheme.textSecondary.opacity(0.4))
+        Button {} label: { optionRowLabel(icon: icon, label: label, color: color) }
+    }
+
+    private func optionRowLabel(icon: String, label: String, color: Color) -> some View {
+        HStack(spacing: 14) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 8, style: .continuous).fill(color.opacity(0.12)).frame(width: 36, height: 36)
+                Image(systemName: icon).font(.system(size: 15)).foregroundColor(color)
             }
-            .padding(.horizontal, 16).padding(.vertical, 14)
-            .background(Color.white)
+            Text(label).font(.system(size: 15)).foregroundColor(AppTheme.textPrimary)
+            Spacer()
+            Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold)).foregroundColor(AppTheme.textSecondary.opacity(0.4))
         }
+        .padding(.horizontal, 16).padding(.vertical, 14)
+        .background(Color.white)
     }
 
     // MARK: - Sign out

@@ -4,15 +4,23 @@ import StripePaymentSheet
 struct CheckoutView: View {
     @EnvironmentObject private var cartVM: CartViewModel
     @EnvironmentObject private var recEngine: RecommendationEngine
+    @EnvironmentObject private var orderService: OrderService
+    @EnvironmentObject private var paymentService: PaymentService
+    @EnvironmentObject private var auth: AuthService
     @StateObject private var vm = CheckoutViewModel()
-    @StateObject private var orderSvc = OrderService()
+
     @State private var placedOrder: Order? = nil
     @State private var showTracking = false
+    @State private var showLocationPicker = false
+    @State private var showPaymentMethods = false
+    @State private var errorMessage: String?
     @Environment(\.dismiss) private var dismiss
 
     private var restaurant: Restaurant? {
         RestaurantData.all.first(where: { $0.id == cartVM.currentRestaurantId })
     }
+    private var addressSet: Bool { !vm.deliveryAddress.trimmingCharacters(in: .whitespaces).isEmpty }
+    private var canPlace: Bool { addressSet && paymentService.selectedMethod != nil && !vm.isLoading }
 
     var body: some View {
         NavigationStack {
@@ -40,28 +48,50 @@ struct CheckoutView: View {
                     }
                 }
             }
-            .alert("Payment Error", isPresented: Binding(
-                get: { vm.errorMessage != nil },
-                set: { if !$0 { vm.errorMessage = nil } }
+            .alert("Checkout", isPresented: Binding(
+                get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } }
             )) {
-                Button("OK") { vm.errorMessage = nil }
-            } message: {
-                Text(vm.errorMessage ?? "")
+                Button("OK") { errorMessage = nil }
+            } message: { Text(errorMessage ?? "") }
+            .sheet(isPresented: $showLocationPicker) {
+                LocationPickerView { vm.deliveryAddress = $0 }
             }
-            .fullScreenCover(isPresented: $showTracking) {
-                if let order = placedOrder {
-                    OrderTrackingView(order: order)
-                }
+            .sheet(isPresented: $showPaymentMethods) {
+                NavigationStack { PaymentMethodsView(selectable: true) }
             }
+            .fullScreenCover(isPresented: $showTracking, onDismiss: { dismiss() }) {
+                if let order = placedOrder { OrderTrackingView(order: order) }
+            }
+            .onAppear { paymentService.load(for: auth.currentUser?.id) }
         }
     }
 
-    // MARK: - Delivery
+    // MARK: - Delivery (map picker)
     private var deliverySection: some View {
         VStack(alignment: .leading, spacing: 12) {
             sectionHeader("Delivery Address")
             VStack(spacing: 10) {
-                field(icon: "mappin.circle.fill", placeholder: "Enter delivery address", text: $vm.deliveryAddress)
+                Button { showLocationPicker = true } label: {
+                    HStack(spacing: 12) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10).fill(AppTheme.primary.opacity(0.12)).frame(width: 42, height: 42)
+                            Image(systemName: "map.fill").foregroundColor(AppTheme.primary)
+                        }
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(addressSet ? "Deliver to" : "Set your location")
+                                .font(.system(size: 12, weight: .medium)).foregroundColor(AppTheme.textSecondary)
+                            Text(addressSet ? vm.deliveryAddress : "Pick on the map")
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(addressSet ? AppTheme.textPrimary : AppTheme.primary)
+                                .lineLimit(2).multilineTextAlignment(.leading)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right").font(.system(size: 13, weight: .semibold)).foregroundColor(AppTheme.textSecondary.opacity(0.5))
+                    }
+                    .padding(16).cardStyle()
+                }
+                .buttonStyle(.plain)
+
                 field(icon: "note.text", placeholder: "Delivery instructions (optional)", text: $vm.deliveryInstructions)
             }
             .padding(.horizontal, 20)
@@ -129,22 +159,33 @@ struct CheckoutView: View {
         .padding(.horizontal, 16).padding(.vertical, 12)
     }
 
-    // MARK: - Payment
+    // MARK: - Payment (selectable)
     private var paymentSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             sectionHeader("Payment")
-            HStack(spacing: 14) {
-                Image(systemName: "creditcard.fill").font(.system(size: 22)).foregroundColor(AppTheme.navy)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Pay by Card").font(.system(size: 15, weight: .semibold)).foregroundColor(AppTheme.textPrimary)
-                    Text("Secure payment powered by Stripe").font(.system(size: 12)).foregroundColor(AppTheme.textSecondary)
+            Button { showPaymentMethods = true } label: {
+                HStack(spacing: 14) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8).fill(AppTheme.navy).frame(width: 46, height: 32)
+                        Image(systemName: "creditcard.fill").font(.system(size: 14)).foregroundColor(.white)
+                    }
+                    VStack(alignment: .leading, spacing: 2) {
+                        if let m = paymentService.selectedMethod {
+                            Text(m.displayName).font(.system(size: 15, weight: .semibold)).foregroundColor(AppTheme.textPrimary)
+                            Text("Expires \(m.expiry)").font(.system(size: 12)).foregroundColor(AppTheme.textSecondary)
+                        } else {
+                            Text("Add a payment method").font(.system(size: 15, weight: .semibold)).foregroundColor(AppTheme.primary)
+                            Text("Required to place your order").font(.system(size: 12)).foregroundColor(AppTheme.textSecondary)
+                        }
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.right").font(.system(size: 13, weight: .semibold)).foregroundColor(AppTheme.textSecondary.opacity(0.5))
                 }
-                Spacer()
-                Image(systemName: "checkmark.circle.fill").foregroundColor(AppTheme.primary)
+                .padding(16).cardStyle()
+                .overlay(RoundedRectangle(cornerRadius: AppTheme.cardRadius, style: .continuous)
+                    .stroke(AppTheme.primary.opacity(0.3), lineWidth: 1.5))
             }
-            .padding(16)
-            .cardStyle()
-            .overlay(RoundedRectangle(cornerRadius: AppTheme.cardRadius, style: .continuous).stroke(AppTheme.primary.opacity(0.3), lineWidth: 1.5))
+            .buttonStyle(.plain)
             .padding(.horizontal, 20)
         }
     }
@@ -160,9 +201,9 @@ struct CheckoutView: View {
                     Text(String(format: "Place Order  ·  $%.2f", cartVM.total)).font(.system(size: 17, weight: .bold))
                 }
             }
-            .primaryButtonStyle(disabled: vm.isLoading || vm.deliveryAddress.trimmingCharacters(in: .whitespaces).isEmpty)
+            .primaryButtonStyle(disabled: !canPlace)
         }
-        .disabled(vm.isLoading || vm.deliveryAddress.trimmingCharacters(in: .whitespaces).isEmpty)
+        .disabled(!canPlace)
     }
 
     private func sectionHeader(_ t: String) -> some View {
@@ -171,30 +212,49 @@ struct CheckoutView: View {
 
     // MARK: - Order flow
     private func handleOrder() {
+        guard addressSet else { errorMessage = "Please set your delivery address."; return }
+        guard paymentService.selectedMethod != nil else { errorMessage = "Please add a payment method."; return }
+
+        if Config.isStripeConfigured {
+            payWithStripe()
+        } else {
+            // No backend configured → authorize locally so the full flow works.
+            finalizeOrder()
+        }
+    }
+
+    private func finalizeOrder() {
+        guard let r = restaurant else { return }
+        vm.isLoading = true
+        let order = orderService.placeOrder(
+            userId: auth.currentUser?.id,
+            items: cartVM.items,
+            restaurant: r,
+            address: vm.deliveryAddress,
+            total: cartVM.total,
+            payment: paymentService.selectedMethod
+        )
+        recEngine.recordOrder(cartVM.items)   // feed the order back into rankings
+        placedOrder = order
+        cartVM.clearCart()
+        vm.isLoading = false
+        showTracking = true
+    }
+
+    private func payWithStripe() {
         Task {
             await vm.preparePayment(amountCents: Int(cartVM.total * 100))
-            guard let sheet = vm.paymentSheet else { return }
-
+            guard let sheet = vm.paymentSheet else {
+                errorMessage = vm.errorMessage ?? "Couldn't start payment."
+                return
+            }
             await MainActor.run {
                 guard let vc = UIApplication.shared.topKeyWindowViewController else { return }
                 sheet.present(from: vc) { result in
                     switch result {
-                    case .completed:
-                        guard let r = restaurant else { return }
-                        let order = orderSvc.placeOrder(
-                            items: cartVM.items,
-                            restaurant: r,
-                            address: vm.deliveryAddress,
-                            total: cartVM.total
-                        )
-                        placedOrder = order
-                        recEngine.recordOrder(cartVM.items)   // feed the order back into rankings
-                        cartVM.clearCart()
-                        showTracking = true
-                    case .failed(let err):
-                        vm.errorMessage = err.localizedDescription
-                    case .canceled:
-                        break
+                    case .completed: finalizeOrder()
+                    case .failed(let err): errorMessage = err.localizedDescription
+                    case .canceled: break
                     }
                 }
             }

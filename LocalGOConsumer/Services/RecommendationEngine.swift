@@ -122,6 +122,24 @@ final class RecommendationEngine: ObservableObject {
         )
     }
 
+    /// "Order Again" — distinct items the user recently ordered, mapped back to
+    /// live menu items so they can be re-added with one tap.
+    func buyAgain(from lines: [OrderLine], in restaurant: Restaurant, limit: Int = 10) -> [MenuItem] {
+        var menu: [String: MenuItem] = [:]
+        for item in restaurant.categories.flatMap(\.items) { menu[item.name] = item }
+
+        var seen = Set<String>()
+        var result: [MenuItem] = []
+        for line in lines where !seen.contains(line.itemName) {
+            if let item = menu[line.itemName] {
+                seen.insert(line.itemName)
+                result.append(item)
+                if result.count >= limit { break }
+            }
+        }
+        return result
+    }
+
     // MARK: - Helpers
 
     /// Pick the dominant signal so we can explain the recommendation to the user.
