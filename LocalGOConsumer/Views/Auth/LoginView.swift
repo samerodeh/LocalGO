@@ -45,6 +45,9 @@ struct LoginView: View {
                 AppleSignInButton { error = $0 }
                     .environmentObject(auth)
 
+                GoogleSignInButton { error = $0 }
+                    .environmentObject(auth)
+
                 HStack(spacing: 4) {
                     Text("New to LocalGO?").font(.system(size: 14)).foregroundColor(AppTheme.textSecondary)
                     NavigationLink { SignUpView() } label: {

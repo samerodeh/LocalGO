@@ -201,6 +201,23 @@ final class AuthService: ObservableObject {
         startSession(user: user)   // they proved control of the email + set a new password
     }
 
+    // MARK: - Sign in with Google
+
+    func completeGoogleSignIn(userId: String, fullName: String?, email googleEmail: String?) {
+        let existing = store.user(forId: userId)
+        let user = AppUser(
+            id: userId,
+            name: fullName?.isEmpty == false ? fullName! : (existing?.name ?? "Google User"),
+            email: googleEmail ?? existing?.email ?? "",
+            phone: existing?.phone ?? "",
+            provider: .apple,   // we reuse .apple for all federated logins
+            createdAt: existing?.createdAt ?? Date(),
+            emailVerified: true   // Google verifies the email
+        )
+        let resolved = store.upsertFederated(user: user)
+        startSession(user: resolved)
+    }
+
     // MARK: - Sign in with Apple
 
     func completeAppleSignIn(userId: String, fullName: String?, email appleEmail: String?) {

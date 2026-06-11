@@ -52,6 +52,9 @@ struct SignUpView: View {
                 AppleSignInButton { error = $0 }
                     .environmentObject(auth)
 
+                GoogleSignInButton { error = $0 }
+                    .environmentObject(auth)
+
                 HStack(spacing: 4) {
                     Text("Already have an account?").font(.system(size: 14)).foregroundColor(AppTheme.textSecondary)
                     NavigationLink { LoginView() } label: {

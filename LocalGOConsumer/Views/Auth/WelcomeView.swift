@@ -38,6 +38,9 @@ struct WelcomeView: View {
                 AppleSignInButton { appleError = $0 }
                     .environmentObject(auth)
 
+                GoogleSignInButton { appleError = $0 }
+                    .environmentObject(auth)
+
                 NavigationLink {
                     LoginView()
                 } label: {
