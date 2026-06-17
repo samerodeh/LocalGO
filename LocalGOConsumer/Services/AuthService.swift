@@ -82,7 +82,7 @@ final class AuthService: ObservableObject {
             provider: .email, createdAt: Date(), emailVerified: false
         )
 
-        try await Task.detached(priority: .userInitiated) { [store] in
+        await Task.detached(priority: .userInitiated) { [store] in
             store.insert(user: user, password: password)
         }.value
 

@@ -276,7 +276,7 @@ final class Database {
     }
     private func bindBlob(_ stmt: OpaquePointer, _ index: Int32, _ data: Data) {
         data.withUnsafeBytes { raw in
-            sqlite3_bind_blob(stmt, index, raw.baseAddress, Int32(data.count), SQLITE_TRANSIENT)
+            _ = sqlite3_bind_blob(stmt, index, raw.baseAddress, Int32(data.count), SQLITE_TRANSIENT)
         }
     }
     private func columnText(_ stmt: OpaquePointer, _ index: Int32) -> String {

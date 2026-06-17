@@ -24,10 +24,6 @@ struct ForgotPasswordView: View {
                 AuthPrimaryButton(title: "Send Reset Code", isLoading: isLoading, disabled: email.isEmpty) {
                     submit()
                 }
-
-                NavigationLink(isActive: $goToReset) {
-                    ResetPasswordView(email: email)
-                } label: { EmptyView() }
             }
             .padding(.horizontal, 24)
             .padding(.bottom, 40)
@@ -35,6 +31,9 @@ struct ForgotPasswordView: View {
         .background(AppTheme.background.ignoresSafeArea())
         .navigationTitle("Forgot Password")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $goToReset) {
+            ResetPasswordView(email: email)
+        }
         .alert("Couldn't send code", isPresented: Binding(
             get: { error != nil }, set: { if !$0 { error = nil } }
         )) {
