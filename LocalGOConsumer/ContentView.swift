@@ -12,18 +12,24 @@ struct ContentView: View {
                 }
                 .tag(0)
 
+            ChatbotView()
+                .tabItem {
+                    Label("Assistant", systemImage: selectedTab == 1 ? "sparkles" : "sparkles")
+                }
+                .tag(1)
+
             CartView(isModal: false)
                 .tabItem {
-                    Label("Cart", systemImage: selectedTab == 1 ? "cart.fill" : "cart")
+                    Label("Cart", systemImage: selectedTab == 2 ? "cart.fill" : "cart")
                 }
                 .badge(cartVM.totalItems > 0 ? "\(cartVM.totalItems)" : nil)
-                .tag(1)
+                .tag(2)
 
             ProfileView()
                 .tabItem {
-                    Label("Profile", systemImage: selectedTab == 2 ? "person.fill" : "person")
+                    Label("Profile", systemImage: selectedTab == 3 ? "person.fill" : "person")
                 }
-                .tag(2)
+                .tag(3)
         }
         .tint(AppTheme.primary)
     }
