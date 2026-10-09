@@ -76,9 +76,9 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <li><strong>T</strong> 514.555.0199</li>
-            <li><strong>E</strong> hello@localgo.ca</li>
-            <li><strong>W</strong> www.localgo.ca</li>
+
+            <li><strong>E</strong> samerodeh.dev@gmail.com</li>
+            <li><strong>W</strong> localgo.vercel.app</li>
             <li><strong>Location</strong> Montreal, QC</li>
           </motion.ul>
         </motion.div>

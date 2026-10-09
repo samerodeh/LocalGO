@@ -78,9 +78,11 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <p><strong>T</strong> 514.555.0199</p>
-          <p><strong>E</strong> hello@localgo.ca</p>
-          <p><strong>W</strong> www.localgo.ca</p>
+
+          <p><a href="/privacy">Privacy policy</a></p>
+          <p><a href="/delete-account">Delete account</a></p>
+          <p><strong>E</strong> samerodeh.dev@gmail.com</p>
+          <p><strong>W</strong> localgo.vercel.app</p>
         </motion.div>
       </div>
 
